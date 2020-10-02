@@ -3,6 +3,7 @@ package lesson2.task_four_millions;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.IntStream;
 
 public class FourMillions {
@@ -16,7 +17,7 @@ public class FourMillions {
     /**
      * Буфер счёта
      */
-    private long count = 0;
+    private static AtomicLong count = new AtomicLong();
 
     /**
      * Считаем +1
@@ -25,14 +26,14 @@ public class FourMillions {
      * это позволяет выполнять вычисление с установкой нового значения
      * только в 1 потоке исполнения и решить проблему состояния гонок потоков
     */
-    public synchronized void increment() {
-      count++;
+    public void increment() {
+      count.incrementAndGet();
     }
 
     /**
      * Получить текущее значение счётчика
      */
-    public long getCount() {
+    public AtomicLong getCount() {
       return count;
     }
   }
@@ -60,6 +61,7 @@ public class FourMillions {
     // когда все потоки завершат свою работу
     CompletableFuture.allOf(futures).thenRun(() -> {
       // имеем шанс не получить 4 млн
+      System.out.println(N_THREADS);
       System.out.println("Total count: " + counter.getCount());
       executorService.shutdown();
     });
