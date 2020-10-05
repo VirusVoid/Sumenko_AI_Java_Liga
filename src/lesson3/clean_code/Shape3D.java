@@ -1,4 +1,4 @@
-package clean_code;
+package lesson3.clean_code;
 
 /**
  * Интерфейс для описания объемных фигур

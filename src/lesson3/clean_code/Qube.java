@@ -1,4 +1,4 @@
-package clean_code;
+package lesson3.clean_code;
 
 public class Qube extends Point implements Shape3D{
     private Double x;

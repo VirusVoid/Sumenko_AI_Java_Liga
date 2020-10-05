@@ -1,4 +1,4 @@
-package clean_code;
+package lesson3.clean_code;
 
 public class Square extends Point{
     private Double x;
