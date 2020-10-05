@@ -1,4 +1,4 @@
-package clean_code;
+package lesson3.clean_code;
 
 public class BadCode2 {
     public static void main(String... args) {
