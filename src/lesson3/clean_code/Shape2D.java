@@ -1,18 +1,29 @@
 package lesson3.clean_code;
-
 /**
- * Интерфейс для описания фигур в двумерном пространстве
+ * Класс, описывающий фигуры в двумерном пространстве
  */
-public interface Shape2D {
+public abstract class Shape2D {
     /**
-     * Получение начальных координат фигуры
-     * @return начальные координаты x,y
+     * Начальные координаты фигуры
      */
-    Double getX();
-    Double getY();
+    private Double x;
+    private Double y;
+
+    public Shape2D(Double x, Double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public Double getX() {
+        return x;
+    }
+
+    public Double getY() {
+        return y;
+    }
     /**
      * Вычисление площади фигуры
      * @return площадь фигуры
      */
-    Double getArea();
+    public abstract Double getArea();
 }

@@ -1,19 +1,35 @@
 package lesson3.clean_code;
-
 /**
- * Интерфейс для описания объемных фигур
+ * Класс, описывающий объемные фигуры
  */
-public interface Shape3D {
+public abstract class Shape3D {
     /**
-     * Получение начальных координат фигуры
-     * @return начальные координаты x,y,z
+     * Начальные координаты фигуры
      */
-    Double getX();
-    Double getY();
-    Double getZ();
+    private Double x;
+    private Double y;
+    private Double z;
+
+    public Shape3D(Double x, Double y, Double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public Double getX() {
+        return x;
+    }
+
+    public Double getY() {
+        return y;
+    }
+
+    public Double getZ() {
+        return z;
+    }
     /**
      * Вычисление объема фигуры
      * @return объем фигуры
      */
-    Double getVolume();
+    public abstract Double getVolume();
 }
