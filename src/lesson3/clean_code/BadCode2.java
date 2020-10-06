@@ -1,5 +1,8 @@
 package lesson3.clean_code;
 
+/**
+ * Основной класс, демонстрирующий работу с классами куб и квадрат
+ */
 public class BadCode2 {
     public static void main(String... args) {
         Qube qube = new Qube(1d, 1d, 1d, 10d);

@@ -1,5 +1,8 @@
 package lesson3.clean_code;
 
+/**
+ * Класс, описывающий куб
+ */
 public class Qube extends Shape3D {
     /**
      * Размер стороны куба

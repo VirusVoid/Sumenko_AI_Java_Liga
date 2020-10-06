@@ -19,10 +19,8 @@ public class DeadLock {
             bower.bowBack(this);
         }
 
-        public void bowBack(Friend bower) {
-            synchronized (bower) {
-                System.out.format("%s: %s подстрелил меня!\n", this.name, bower.getName());
-            }
+        public synchronized void bowBack(Friend bower) {
+            System.out.format("%s: %s подстрелил меня!!!\n", this.name, bower.getName());
         }
 
         /**
@@ -34,7 +32,7 @@ public class DeadLock {
             Friend alphonse = new Friend("Alphonse");
             Friend gaston = new Friend("Gaston");
 
-            new Thread(() -> alphonse.bow(gaston)).start();
+           // new Thread(() -> alphonse.bow(gaston)).start();
             new Thread(() -> gaston.bow(alphonse)).start();
         }
     }

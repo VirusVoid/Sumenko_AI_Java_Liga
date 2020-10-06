@@ -1,5 +1,8 @@
 package lesson3.clean_code;
 
+/**
+ * Класс, описывающий квадрат
+ */
 public class Square extends Shape2D {
     /**
      * Размер стороны квадрата
