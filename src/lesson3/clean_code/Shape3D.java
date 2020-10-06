@@ -4,7 +4,7 @@ package lesson3.clean_code;
  */
 public abstract class Shape3D {
     /**
-     * Начальные координаты фигуры
+     * Начальные координаты объемной фигуры
      */
     private Double x;
     private Double y;
