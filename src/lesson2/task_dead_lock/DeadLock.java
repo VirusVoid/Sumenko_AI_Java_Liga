@@ -13,14 +13,18 @@ public class DeadLock {
             return name;
         }
 
-        public synchronized void bow(Friend bower) {
+        public void bow(Friend bower) {
+            synchronized (bower){
             System.out.format("%s: %s подстрелил меня!\n", this.name, bower.getName());
             System.out.format("%s: стреляю в ответ!\n", this.name);
             bower.bowBack(this);
+            }
         }
 
-        public synchronized void bowBack(Friend bower) {
+        public void bowBack(Friend bower) {
+            synchronized (this){
             System.out.format("%s: %s подстрелил меня!!!\n", this.name, bower.getName());
+            }
         }
 
         /**
@@ -32,7 +36,7 @@ public class DeadLock {
             Friend alphonse = new Friend("Alphonse");
             Friend gaston = new Friend("Gaston");
 
-           // new Thread(() -> alphonse.bow(gaston)).start();
+            new Thread(() -> alphonse.bow(gaston)).start();
             new Thread(() -> gaston.bow(alphonse)).start();
         }
     }
